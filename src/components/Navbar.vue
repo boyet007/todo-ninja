@@ -35,7 +35,7 @@
       links: [
           { icon: 'mdi-view-dashboard', text: 'Dashboard', route:'/' },
           { icon: 'mdi-folder', text: 'My Projects', route:'/projects' },
-          { icon: 'mdi-account', text: 'Team', route:'/team' },
+          { icon: 'mdi-account', text: 'Team', route:'/teams' },
       ]
     }),
   }

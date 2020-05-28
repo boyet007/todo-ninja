@@ -1,10 +1,8 @@
 <template>
    <v-content>
       <v-container>
-        <v-row
-
-        >
-          <p>test</p>
+        <v-row>
+          <p>project</p>
         </v-row>
       </v-container>
     </v-content>

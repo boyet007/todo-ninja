@@ -4,7 +4,7 @@
         <v-row
 
         >
-          <p>test</p>
+          <p>team</p>
         </v-row>
       </v-container>
     </v-content>
