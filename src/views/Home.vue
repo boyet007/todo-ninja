@@ -13,8 +13,9 @@
             <div>{{ project.person }}</div>
           </v-flex>
           <v-flex xs2 sm4 md2>
-            <div class="caption grey--text">Status</div>
-            <div>{{ project.status }}</div>
+            <div>
+              <v-chip small :class="`${project.status} my-2`">{{ project.status }}</v-chip>
+            </div>
           </v-flex>
         </v-layout>
         <v-divider />
@@ -44,4 +45,8 @@ export default {
   .project.complete { border-left: 4px solid #3cd1c2; }
   .project.ongoing { border-left: 4px solid orange; }
   .project.overcome { border-left: 4px solid tomato; }
+  
+  .v-chip.complete { background: #3cd1c2 !important; }
+  .v-chip.ongoing { background: orange !important; }
+  .v-chip.overcome { background: tomato !important; }
 </style>
