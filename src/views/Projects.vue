@@ -1,11 +1,7 @@
 <template>
-   <v-content>
-      <v-container>
-        <v-row>
-          <p>project</p>
-        </v-row>
-      </v-container>
-    </v-content>
+  <div class="team">
+    <h1 class="subheading grey--text">Projects</h1>
+  </div>
 </template>
 
 <script>
