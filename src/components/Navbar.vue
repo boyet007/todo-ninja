@@ -10,7 +10,7 @@
           </p>
         </v-flex>
         <v-list dense>
-                <v-list-item router :to="link.route" v-for="(link, index) in links" :key="index">
+                <v-list-item v-for="(link, index) in links" :key="index" router :to="link.route">
                 <v-list-item-action >
                     <v-icon>{{ link.icon }}</v-icon>
                 </v-list-item-action>
@@ -25,8 +25,29 @@
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>Todo Ninja</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn icon>
-               <v-icon>mdi-logout-variant</v-icon>
+
+            <v-menu transition="scale-transition" offset-y>
+              <template v-slot:activator="{ on }">
+                <v-btn text v-on="on">
+                <v-icon left> mdi-chevron-down</v-icon>
+                Menu
+
+               </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                  v-for="link in links"
+                  :key="link.text" 
+                  router :to="link.route"
+                  
+                >
+                  <v-list-item-title>{{ link.text }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <v-btn text>Sign Out
+              <v-icon right>mdi-logout-variant</v-icon>
             </v-btn>
         </v-app-bar>
   </nav>
