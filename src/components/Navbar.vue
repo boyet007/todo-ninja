@@ -1,6 +1,16 @@
 <template>
     <nav>
         <v-navigation-drawer dark class="primary" v-model="drawer" app>
+          <v-flex class="mt-5 text-center">
+          <v-avatar size="100">
+            <img src="/avatar-1.png" alt="">
+          </v-avatar>
+          <p class="white--text subheading mt-1">
+            The Net Ninja
+          </p>
+        </v-flex>
+
+
             <v-list dense>
                 <v-list-item router :to="link.route" v-for="(link, index) in links" :key="index">
                 <v-list-item-action >
@@ -18,7 +28,7 @@
             <v-toolbar-title>Todo Ninja</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
-                    <v-icon>mdi-logout-variant</v-icon>
+               <v-icon>mdi-logout-variant</v-icon>
             </v-btn>
         </v-app-bar>
   </nav>
