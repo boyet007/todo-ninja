@@ -8,6 +8,10 @@
           <p class="white--text subheading mt-1">
             The Net Ninja
           </p>
+          <v-flex class="mt-4 mb-3">
+            <Popup />
+          </v-flex>
+
         </v-flex>
         <v-list dense>
                 <v-list-item v-for="(link, index) in links" :key="index" router :to="link.route">
@@ -54,7 +58,11 @@
 </template>
 
 <script>
+  import Popup from './Popup';
   export default {
+    components: {
+      Popup
+    },
     props: {
       source: String,
     },
