@@ -21,7 +21,7 @@
           <span>Sort project by person name</span>
         </v-tooltip>
       </v-layout>
-      <v-card flat v-for="(project, index) in projects" :key="index">
+      <v-card v-for="(project, index) in projects" flat :key="index" class="mb-4">
         <v-layout row wrap :class="`pa-3 project ${project.status}`">
           <v-flex xs12 md6>
             <div class="caption grey--text">Project title</div>
