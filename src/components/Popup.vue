@@ -3,9 +3,13 @@
         <v-btn @click.stop="dialog=true" color="success">Add new project</v-btn>
         <v-dialog width="600px" v-model="dialog">
             <v-card>
-               <v-card-title class="headline">Use Google's location service?</v-card-title>
+               <v-card-title><h2>Add a New Project</h2></v-card-title>
                <v-card-text>
-                    Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+                   <v-form class="px-3">
+                       <v-text-field label="Title" prepend-icon="folder" v-model="title"></v-text-field>
+                        <v-textarea label="Information" prepend-icon="edit" v-model="content"></v-textarea>
+                        <v-btn text class="success mx-0 mt-3" @click="submit">Add project</v-btn>
+                   </v-form>
                 </v-card-text>
             </v-card>
         </v-dialog>
@@ -16,7 +20,14 @@
 export default {
     data() {
         return {
-            dialog: false
+            dialog: false,
+            title: '',
+            content: ''
+        }
+    },
+    methods: {
+        submit() {
+            console.log(this.title, this.content)
         }
     }
 }
