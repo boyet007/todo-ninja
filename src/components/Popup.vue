@@ -28,6 +28,7 @@
 
 <script>
 import { parseISO, format } from 'date-fns';
+import db from '@/fb.js';
 export default {
     data() {
         return {
@@ -43,7 +44,16 @@ export default {
     methods: {
         submit() {
             if (this.$refs.form.validate()) {
-                console.log(this.title, this.content);
+                const project = {
+                    title: this.title,
+                    content: this.content,
+                    due: format(parseISO(this.due), 'do MMM yyyy'),
+                    person: 'The Net Ninja',
+                    status: 'ongoing'
+                };
+                db.collection('projects').add(project).then(() => {
+                    console.log('added to db');
+                });
             }
             
         }
