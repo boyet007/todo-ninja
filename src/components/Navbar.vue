@@ -1,5 +1,10 @@
 <template>
     <nav>
+        <v-snackbar v-model="snackbar" :timeout="4000" top color="success">
+          <span>Awesome! You added a new project.</span>
+          <v-btn text color="white" @click="snackbar=false">Close</v-btn>
+        </v-snackbar>
+
         <v-navigation-drawer dark class="primary" v-model="drawer" app>
           <v-flex class="mt-5 text-center">
           <v-avatar size="100">
@@ -9,7 +14,7 @@
             The Net Ninja
           </p>
           <v-flex class="mt-4 mb-3">
-            <Popup />
+            <Popup @projectAdded="snackbar=true"/>
           </v-flex>
 
         </v-flex>
@@ -73,7 +78,8 @@
           { icon: 'mdi-view-dashboard', text: 'Dashboard', route:'/' },
           { icon: 'mdi-folder', text: 'My Projects', route:'/projects' },
           { icon: 'mdi-account', text: 'Team', route:'/teams' },
-      ]
+      ],
+      snackbar: true
     }),
   }
 </script>
