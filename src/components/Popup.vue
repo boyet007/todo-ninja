@@ -9,12 +9,12 @@
             <v-card>
                 <v-card-title><h2>Add a New Project</h2></v-card-title>
                 <v-card-text>
-                   <v-form class="px-3">
-                       <v-text-field label="Title" prepend-icon="folder" v-model="title"></v-text-field>
-                        <v-textarea label="Information" prepend-icon="edit" v-model="content"></v-textarea>
+                   <v-form class="px-3" ref="form">
+                       <v-text-field label="Title" prepend-icon="folder" :rules="inputRules" v-model="title"></v-text-field>
+                        <v-textarea label="Information" prepend-icon="edit" :rules="inputRules" v-model="content"></v-textarea>
                        <v-menu  min-width="0">
                             <template v-slot:activator="{ on }">
-                            <v-text-field :value="formattedDate" v-on="on" label="Due date" prepend-icon="date_range"></v-text-field>
+                            <v-text-field :value="formattedDate" v-on="on" label="Due date" :rules="inputRules" prepend-icon="date_range"></v-text-field>
                             </template>
                             <v-date-picker v-model="due"></v-date-picker>
                         </v-menu>
@@ -34,12 +34,18 @@ export default {
             dialog: false,
             title: '',
             content: '',
-            due: ''
+            due: null,
+            inputRules: [
+                v => v.length >= 3 || 'Minimum length is 3 characters'
+            ]
         }
     },
     methods: {
         submit() {
-            console.log(this.title, this.content)
+            if (this.$refs.form.validate()) {
+                console.log(this.title, this.content);
+            }
+            
         }
     },
     computed: {
