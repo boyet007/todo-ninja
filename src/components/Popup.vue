@@ -28,7 +28,7 @@
 
 <script>
 import { parseISO, format } from 'date-fns';
-import db from '@/fb.js';
+import db from '@/fb';
 export default {
     data() {
         return {

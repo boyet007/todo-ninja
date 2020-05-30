@@ -64,6 +64,7 @@
 
 <script>
   import Popup from './Popup';
+
   export default {
     components: {
       Popup
@@ -71,7 +72,7 @@
     props: {
       source: String,
     },
-
+   
     data: () => ({
       drawer: true,
       links: [
@@ -79,7 +80,7 @@
           { icon: 'mdi-folder', text: 'My Projects', route:'/projects' },
           { icon: 'mdi-account', text: 'Team', route:'/teams' },
       ],
-      snackbar: true
+      snackbar: false
     }),
   }
 </script>
